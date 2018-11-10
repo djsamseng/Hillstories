@@ -15,7 +15,9 @@ class StoryTileList extends Component {
             />
         ));
         return (
-            <div>
+            <div
+                className="storyTileListContainer"
+            >
                 { storyTiles }
             </div>
         );

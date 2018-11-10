@@ -1,34 +1,44 @@
 .container {
-  background-color: #f1f1f1;
+  background-color: #e6e6e6;
   box-sizing: border-box;
-  padding: 25px;
+  /*padding: 25px;*/
   min-height: 100vh;
-  width: 100vw;
+  /*width: 100vw;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column nowrap;*/
   align-items: center;
   justify-content: space-between;
 
 }
 
-.comments {
-  overflow: auto;
-  width: 75%;
+.storyTileListContainer {
   max-width: 700px;
   min-width: 300px;
+  margin-left: auto; /* Center the div */
+  margin-right: auto; /* Center the div */
+  padding: 10px;
+  text-align: center; /* Center the text in the div */
 }
 
-.comments h2 {
+.storyTileContainer {
+  background-color: #f2f2f2;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  margin-left: auto; /* Center the div */
+  margin-right: auto; /* Center the div */
+  text-align: center; /* Center the text in the div */
+  width: 70%;
+}
+
+.storyTileContainer h2 {
   font-weight: 300;
 }
 
-.singleComment {
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  display: flex;
+.storyTileContainer h3 {
+  font-weight: 300;
 }
 
-.singleCommentContent {
+.storyTileContent {
   min-width: 100px;
   background-color: #fff;
   border-radius: 25px;
@@ -36,13 +46,13 @@
   display: inline-flex;
 }
 
-.userImage {
-  height: 35px;
-  margin-right: 10px;
-  border-radius: 50%;
+.storyTileImage {
+  max-width: 100%; /* size to container */
+  max-height: 50vh; /* size to container */
+  border-radius: 10%;
 }
 
-
+/*
 .singleCommentContent h3 {
   margin: 0;
   padding-right: 5px;
@@ -110,3 +120,5 @@
   color: #385997;
   border-color: #385997;
 }
+
+*/

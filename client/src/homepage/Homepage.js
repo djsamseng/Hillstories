@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import StoryTileList from "../tiles/StoryTileList.js";
+import HomepageNavbar from "./HomepageNavbar.js";
 import "./Homepage.css";
 
 import picnicImg from "../img/37654668_10157550130863572_8372413357658996736_o.jpg";
@@ -28,12 +29,15 @@ class Homepage extends Component {
     }
     render() {
         return (
-            <div className="container">
-                <h2>Test!</h2>
-                <StoryTileList
-                    storyTiles={ this.state.storyTiles }
-                    handleOpen={ args => { this.__handleOpen(args); } }
+            <div>
+                <HomepageNavbar
                 />
+                <div className="container">
+                    <StoryTileList
+                        storyTiles={ this.state.storyTiles }
+                        handleOpen={ args => { this.__handleOpen(args); } }
+                    />
+                </div>
             </div>
         );
     }

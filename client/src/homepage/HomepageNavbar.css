@@ -1,0 +1,29 @@
+
+.topNavBar {
+    background-color: #cccccc;
+    height: 50px;
+}
+
+.topNavBar ul {
+    list-style-type: none;
+    margin: 0; /* Set on ul so header is at top */
+    padding: 0; /* Set on ul so header is at top */
+}
+
+.topNavBar li {
+    display: block;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.topNavBar .faBars {
+    float: left;
+
+}
+
+.topNavBar .faUserCircle {
+    float: right;
+}
+
+
+

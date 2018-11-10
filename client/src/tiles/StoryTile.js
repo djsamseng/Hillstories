@@ -7,18 +7,33 @@ class StoryTile extends Component {
     }
     render() {
         return (
-            <a
-                className="singleComment"
-                onClick={ () => { this.props.handleOpen(this.props._id); } }
-            >
-                <h3>{ this.props.data.authorName }</h3>
-                <img
-                    alt="story_image"
-                    className="userImage"
-                    src={ this.props.data.imageUrl }
-                />
-                <p>{ this.props.data.title }</p>
-            </a>
+            <div
+                className="storyTileContainer"
+                            >
+                <a
+                    onClick={ () => { this.props.handleOpenProfile(this.props.authorId); } }
+                >
+                    <h2>
+                        { this.props.data.authorName }
+                    </h2>
+                </a>
+                <a
+                    onClick={ () => { this.props.handleOpen(this.props._id); } }
+                >
+                    <img
+                        alt="story_image"
+                        className="storyTileImage"
+                        src={ this.props.data.imageUrl }
+                    />
+                </a>
+                <a
+                    onClick={ () => { this.props.handleOpen(this.props._id); } }
+                >
+                    <h3>
+                        { this.props.data.title }
+                    </h3>
+                </a>
+            </div>
         );
     }
 }
@@ -34,6 +49,7 @@ StoryTile.propTypes = {
 
     // Handlers
     handleOpen: PropTypes.func.isRequired,
+    handleOpenProfile: PropTypes.func.isRequired,
 };
 
 export default StoryTile;
