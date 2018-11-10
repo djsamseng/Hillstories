@@ -1,4 +1,11 @@
 {
+  "name": "Hillstories",
+  "version": "1.0.0",
+  "description": "hillstories.com",
+  "main": "index.js",
+  "repository": "https://github.com/djsamseng/Hillstories.git",
+  "author": "Samuel Seng <djsamseng@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
@@ -10,11 +17,10 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.18.6"
   },
-  "name": "Hillstories",
-  "version": "1.0.0",
-  "description": "hillstories.com",
-  "main": "index.js",
-  "repository": "https://github.com/djsamseng/Hillstories.git",
-  "author": "Samuel Seng <djsamseng@gmail.com>",
-  "license": "MIT"
+  "scripts": {
+    "test": "echo \"TODO\"",
+    "start:server": "cd backend && nodemon server.js --exec babel-node --presets es2015,stage-0",
+    "start:client": "cd client && yarn start",
+    "start:dev": "concurrently \"yarn start:server\" \"start start:client\""
+  }
 }
