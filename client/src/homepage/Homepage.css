@@ -30,6 +30,10 @@
   width: 70%;
 }
 
+.storyTileContainer a {
+    cursor: pointer;
+}
+
 .storyTileContainer h2 {
   font-weight: 300;
 }

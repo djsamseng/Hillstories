@@ -10,7 +10,16 @@ class StoryTileList extends Component {
         const storyTiles = this.props.storyTiles.map(storyTile => (
             <StoryTile
                 data={ storyTile }
-                handleOpen={ () => this.props.handleOpen(storyTile._id) }
+                handleOpen={ () => {
+                    this.props.handleOpen({
+                        storyTileId: storyTile._id,
+                    });
+                }}
+                handleOpenProfile={ () => {
+                    this.props.handleOpenProfile({
+                        authorId: storyTile.authorId,
+                    });
+                }}
                 key={ storyTile._id }
             />
         ));

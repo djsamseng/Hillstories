@@ -1,32 +1,25 @@
 import React, { Component } from "react";
+import DataCache from "../serviceAccess/DataCache.js";
 import StoryTileList from "../tiles/StoryTileList.js";
 import HomepageNavbar from "./HomepageNavbar.js";
 import "./Homepage.css";
 
-import picnicImg from "../img/37654668_10157550130863572_8372413357658996736_o.jpg";
-import trophyImg from "../img/45415073_10217454255853498_3639148136615641088_o.jpg";
 
 class Homepage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            storyTiles: [
-                {
-                    authorName: "Sam",
-                    _id: "st1",
-                    imageUrl: picnicImg,
-                    title: "Work Picnic",
-                },
-                {
-                    authorName: "Chantal",
-                    _id: "st2",
-                    imageUrl: trophyImg,
-                    title: "NPC New England Championships",
-                }
-
-            ]
-        };
+            storyTiles: [],
+        }
+        this.d_dataCache = new DataCache();
+        this.d_dataCache.getStoryTiles()
+        .then(storyTiles => {
+            this.setState({
+                storyTiles,
+            });
+        });
     }
+
     render() {
         return (
             <div>
@@ -36,13 +29,19 @@ class Homepage extends Component {
                     <StoryTileList
                         storyTiles={ this.state.storyTiles }
                         handleOpen={ args => { this.__handleOpen(args); } }
+                        handleOpenProfile={ args => { this.__handleOpenProfile(args); } }
                     />
                 </div>
             </div>
         );
     }
+
     __handleOpen(args) {
         console.log("Story opened: " + args);
+    }
+
+    __handleOpenProfile(args) {
+        console.log("Profile opened: " + args);
     }
 }
 
