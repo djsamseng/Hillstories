@@ -18,7 +18,12 @@ class StoryTile extends Component {
                     </h2>
                 </a>
                 <a
-                    onClick={ () => { this.props.handleOpen(this.props._id); } }
+                    onClick={ () => {
+                        console.log("SENDING: " + this.props.data.storyId);
+                        this.props.handleOpen({
+                            storyId: this.props.data.storyId
+                        });
+                    } }
                 >
                     <img
                         alt="story_image"
@@ -27,7 +32,11 @@ class StoryTile extends Component {
                     />
                 </a>
                 <a
-                    onClick={ () => { this.props.handleOpen(this.props._id); } }
+                    onClick={ () => {
+                        this.props.handleOpen({
+                            storyId: this.props.data.storyId
+                        });
+                    } }
                 >
                     <h3>
                         { this.props.data.title }
@@ -44,6 +53,7 @@ StoryTile.propTypes = {
         authorName: PropTypes.string.isRequired,
         _id: PropTypes.string.isRequired,
         imageUrl: PropTypes.string.isRequired,
+        storyId: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
     }),
 

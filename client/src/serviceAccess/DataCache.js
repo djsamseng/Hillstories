@@ -41,11 +41,32 @@ class DataCache {
             const story = {
                 authorId: "a1",
                 authorName: "Sam",
-                _id: "s1",
+                _id: "story1",
                 content: "Blah blah blah",
             }
             this.d_stories[storyId] = story;
             return story;
+        });
+    }
+
+    getStorySnippet({
+        storyId
+    }) {
+        return Promise.resolve()
+        .then(() => {
+            return this.getStory({
+                storyId
+            })
+        })
+        .then(() => {
+            if (!this.d_stories[storyId]) {
+                throw new Error("No story for storyId: " + storyId);
+            }
+            const story = this.d_stories[storyId];
+            return {
+                storyId: story._id,
+                snippetContent: story.content
+            };
         });
     }
 }
