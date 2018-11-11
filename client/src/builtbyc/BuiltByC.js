@@ -17,11 +17,9 @@ class BuiltByC extends Component {
             "https://www.instagram.com/p/BPXzIPVB5vF/?utm_source=ig_web_copy_link",
         ];
         const instagramPosts = links.map(link => (
-            <div className="storyTileContainer">
                 <InstagramEmbed
                     url={ link }
                 />
-            </div>
         ));
         return (
             <div

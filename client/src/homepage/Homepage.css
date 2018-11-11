@@ -27,7 +27,7 @@
   margin-left: auto; /* Center the div */
   margin-right: auto; /* Center the div */
   text-align: center; /* Center the text in the div */
-  width: 70%;
+  width: 100%;
 }
 
 .storyTileContainer a {
