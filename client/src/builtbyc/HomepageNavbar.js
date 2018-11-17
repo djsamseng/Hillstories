@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import BuiltByCLogo from "./BuiltByCLogo.png";
+import LogoAnimation from "./LogoAnimation.js";
 import "./BuiltByC.css";
 
 class HomepageNavbar extends Component {
@@ -10,15 +11,20 @@ class HomepageNavbar extends Component {
     }
 
     render() {
+        const logo = false ? (
+            <img
+                src={ BuiltByCLogo  }
+                className="BBClogo"
+            />
+        ) : (
+            <LogoAnimation/>
+        );
+
         return (
             <nav
                 className="topNavBar"
             >
-<img
-                            src={ BuiltByCLogo  }
-                            className="BBClogo"
-                        />
-
+                { logo }
                 <ul
                 >
                     <li

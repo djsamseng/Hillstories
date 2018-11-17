@@ -1,0 +1,72 @@
+
+@-webkit-keyframes fade-in {
+    from {
+        opacity:1;
+        top:0px;
+    }
+    to {
+        opacity:0;
+        top:0px;
+    }
+}
+
+.BBCLogoADTV {
+    display: inline;
+    position: relative;
+    top: 0px;
+}
+
+.BBCLogoADTH {
+    display: none;
+    position: relative;
+    top: 0px;
+}
+
+
+
+.BBCLogoADT0 {
+    display: inline;
+    position: relative;
+    top: 0px;
+    -webkit-animation:fade-in 3s infinite;
+}
+
+.BBCLogoADT1 {
+    opacity:0;
+    display:inline;
+    position:relative;
+    margin-left:-17px;
+    -webkit-animation:fade-in 3s infinite;
+    -webkit-animation-delay:1s;
+}
+
+.BBCLogoADT2 {
+    opacity:0;
+    display:inline;
+    position:relative;
+    margin-left:-87px;
+    -webkit-animation:fade-in 3s infinite;
+    -webkit-animation-delay:2s;
+}
+
+.BBCLogoAAgg {
+    display:inline;
+    width: 100px;
+    height: 100px;
+}
+@font-face {
+    font-family: '28_days_laterregular';
+    src: url('./28D/28_days_later-webfont.woff2') format('woff2'),
+         url('./28D/28_days_later-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.BBCLogoAContainer {
+    float: left;
+    font-family: "28_days_laterregular";
+    font-size:36px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
