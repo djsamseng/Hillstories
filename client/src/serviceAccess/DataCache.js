@@ -38,11 +38,45 @@ class DataCache {
         }
         return Promise.resolve()
         .then(() => {
+            const CONTENT_TYPES = {
+                QUESTION: "QUESTION",
+                TEXT: "TEXT",
+            };
+            const oneWord = "a".repeat(10) + " ";
+            const text = oneWord.repeat(500);
+
+            let contents = [];
+            contents = contents.concat((new Array(5)).fill(
+                {
+                    ableToRead: true,
+                    type: CONTENT_TYPES.TEXT,
+                    text,
+                }
+            ));
+            contents = contents.concat((new Array(5)).fill(
+                {
+                    ableToRead: true,
+                    type: CONTENT_TYPES.QUESTION,
+                    text,
+                }
+            ));
+
+            contents = contents.concat((new Array(5)).fill(
+                {
+                    ableToRead: false,
+                    type: CONTENT_TYPES.TEXT,
+                    text,
+                }
+            ));
+
             const story = {
                 authorId: "a1",
                 authorName: "Sam",
                 _id: "story1",
                 content: "Blah blah blah",
+                contents,
+                imageUrl: picnicImg,
+                title: "Work Picnic"
             }
             this.d_stories[storyId] = story;
             return story;

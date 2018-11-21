@@ -52,19 +52,7 @@ class Homepage extends Component {
     __handleOpen({
         storyId
     }) {
-        console.log("GOT: " + storyId);
-        this.d_dataCache.getStorySnippet({
-            storyId
-        })
-        .then(storySnippet => {
-            console.log("DATA: ", storySnippet);
-            this.setState({
-                currentStorySnippet: storySnippet,
-            });
-        })
-        .catch(error => {
-            console.error("Failed to open story: " + storyId, error);
-        })
+        console.log("GOT: " + storyId + "doing nothing for now");
     }
 
     __handleOpenProfile(args) {

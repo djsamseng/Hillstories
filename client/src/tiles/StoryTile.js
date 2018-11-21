@@ -32,6 +32,7 @@ class StoryTile extends Component {
                     />
                 </a>
                 <a
+                    href={ "/#/hillstories/stories?storyId=" + this.props.data.storyId }
                     onClick={ () => {
                         this.props.handleOpen({
                             storyId: this.props.data.storyId
