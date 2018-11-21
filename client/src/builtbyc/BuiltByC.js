@@ -39,11 +39,208 @@ class BBCGetStarted extends Component {
     }
 
     render() {
+        const GISimpleEntries = [
+            {
+                id: "BBCGSname",
+                label: "Name",
+                type: "text",
+                value: this.state.name,
+            },
+            {
+                id: "BBCGSemail",
+                label: "Email",
+                type: "text",
+                value: this.state.email,
+            },
+            {
+                id: "BBCGSphone",
+                label: "Phone",
+                type: "text",
+                value: this.state.phone,
+            },
+            {
+                id: "BBCGSsex",
+                label: "Sex",
+                type: "text",
+                value: this.state.sex,
+            },
+            {
+                id: "BBCGSheight",
+                label: "Height",
+                type: "text",
+                value: this.state.height,
+            },
+            {
+                id: "BBCGSweight",
+                label: "Weight",
+                type: "text",
+                value: this.state.weight,
+            },
+            {
+                id: "BBCGSdOB",
+                label: "Date of birth",
+                type: "text",
+                value: this.state.dOB,
+            },
+            {
+                id: "BBCGSoccupation",
+                label: "Occupation",
+                type: "text",
+                value: this.state.occupation,
+            },
+        ].map(data => {
+            return (
+                <li>
+                    <label>
+                        { data.label }
+                        <input
+                            id={ data.id }
+                            type={ data.type }
+                            value={ data.value }
+                            onChange={ evt => this.handleChange(evt) }
+                        >
+                        </input>
+                    </label>
+                </li>
+            );
+        });
+        const GILongEntries = [
+            {
+                id: "BBCGSbestTimeWorkOut",
+                label: "Best time of day to work out",
+                value: this.state.bestTimeWorkOut,
+            },
+            {
+                id: "BBCGSCurrNumWorkOut",
+                label: "How many days a week are you currently working out?",
+                value: this.state.bestTimeWorkOut,
+            },
+            {
+                id: "BBCGSworkOutType",
+                label: "How long are your typical work outs?" +
+                       " What do your work outs consist of?" +
+                       " (i.e. 30 minutes on the elliptical," +
+                       " 30 minutes lifting weights)",
+                value: this.state.workOutType,
+            },
+        ].map(data => {
+            return (
+                <li>
+                    <label>
+                        { data.label }
+                        <textarea
+                            id={ data.id }
+                            value={ data.value }
+                            onChange={ evt => this.handleChange(evt) }
+                        >
+                        </textarea>
+                    </label>
+                </li>
+            );
+        });
+        const areasOfConcernLongEntries = [
+            {
+                id: "BBCGShealthConditions",
+                label: "Diagnosed health conditions",
+                value: this.state.healthConditions,
+            },
+            {
+                id: "BBCGSreasonsNoWorkout",
+                label: "Do you know of any reason you should not be participating in physical activity?",
+                value: this.state.reasonsNoWorkout,
+            },
+            {
+                id: "BBCGSinjuryHistory",
+                label: "Please briefly list a history of any injuries or areas of concern",
+                value: this.state.injuryHistory,
+            },
+        ].map(data => {
+            return (
+                <li>
+                    <label>
+                        { data.label }
+                        <textarea
+                            id={ data.id }
+                            value={ data.value }
+                            onChange={ evt => this.handleChange(evt) }
+                        >
+                        </textarea>
+                    </label>
+                </li>
+            );
+        });
+
+        const settingGoalsLongEntries = [
+            {
+                id: "BBCGSgoalDaysPerWeek",
+                label: "How many days a week would you like to be working out?",
+                value: this.state.goalDaysPerWeek,
+            },
+            {
+                id: "BBCGSgoalPhysicalChanges",
+                label: "What physical changes would you like to see in your body?",
+                value: this.state.goalPhysicalChanges,
+            },
+            {
+                id: "BBCGSgoalLifeImprovements",
+                label: "What other areas of your life, if any, do you hope to improve through training? (i.e. stress reduction, mental clarity, improved interpersonal relationships et.c)",
+                value: this.state.goalLifeImprovements,
+            },
+        ].map(data => {
+            return (
+                <li>
+                    <label>
+                        { data.label }
+                        <textarea
+                            id={ data.id }
+                            value={ data.value }
+                            onChange={ evt => this.handleChange(evt) }
+                        >
+                        </textarea>
+                    </label>
+                </li>
+            );
+        });
+
+
         return (
             <div>
-                TESTME
+                <form
+                    onSubmit={ evt => this.handleSubmit(evt) }
+                >
+                    <ul>
+                        <h3>General Information</h3>
+                        { GISimpleEntries }
+                        { GILongEntries }
+                        <h3>Areas Of Concern And Injury History</h3>
+                        { areasOfConcernLongEntries }
+                        <h3>Setting Your Health And Fitness Goals</h3>
+                        { settingGoalsLongEntries }
+                        <input
+                            type="submit"
+                            value="submit"
+                        >
+                        </input>
+                    </ul>
+                </form>
             </div>
         );
+    }
+
+    handleSubmit(evt) {
+        evt.preventDefault();
+        const state = this.state;
+        console.log(state);
+    }
+
+    handleChange(evt) {
+        const elemId = evt.target.id;
+        const stateVarName = elemId.substr(5);
+        console.log(stateVarName);
+        console.log(evt.target.value);
+        this.setState({
+            [stateVarName]: evt.target.value
+        });
     }
 }
 
