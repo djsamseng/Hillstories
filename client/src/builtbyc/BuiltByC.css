@@ -5,3 +5,30 @@
     margin-left: 10px;
     margin-top: 5px;
 }
+
+.BBCShortEntryContainer {
+    width: 400px;
+    margin: auto;
+}
+
+.BBCShortEntryLabel {
+    float: left;
+    width: 100px;
+}
+
+.BBCShortEntryValue {
+    margin-left: 10px;
+    width: 200px;
+}
+
+.BBCGetStartedContainer form li {
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.BBCGetStartedContainer form textarea {
+    width: 400px;
+    height: 100px;
+    margin-top: 10px;
+}

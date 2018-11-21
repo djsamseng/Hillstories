@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Route } from "react-router";
 import HomepageNavbar from "./HomepageNavbar.js"
 import InstagramEmbed from "react-instagram-embed"
+import "./BuiltByC.css";
 
 class BBCHome extends Component {
    constructor(props) {
@@ -41,15 +42,22 @@ class BBCGetStarted extends Component {
     render() {
         const GISimpleEntries = [
             {
-                id: "BBCGSname",
-                label: "Name",
+                id: "BBCGSfirstName",
+                label: "First Name",
                 type: "text",
-                value: this.state.name,
+                value: this.state.firstName,
             },
+            {
+                id: "BBCGSlastName",
+                label: "Last Name",
+                type: "text",
+                value: this.state.lastName,
+            },
+
             {
                 id: "BBCGSemail",
                 label: "Email",
-                type: "text",
+                type: "email",
                 value: this.state.email,
             },
             {
@@ -91,16 +99,18 @@ class BBCGetStarted extends Component {
         ].map(data => {
             return (
                 <li>
-                    <label>
+                    <label
+                        className="BBCShortEntryLabel">
                         { data.label }
+                    </label>
                         <input
+                            className="BBCShortEntryValue"
                             id={ data.id }
                             type={ data.type }
                             value={ data.value }
                             onChange={ evt => this.handleChange(evt) }
                         >
                         </input>
-                    </label>
                 </li>
             );
         });
@@ -128,6 +138,7 @@ class BBCGetStarted extends Component {
                 <li>
                     <label>
                         { data.label }
+                        <br />
                         <textarea
                             id={ data.id }
                             value={ data.value }
@@ -159,6 +170,7 @@ class BBCGetStarted extends Component {
                 <li>
                     <label>
                         { data.label }
+                        <br />
                         <textarea
                             id={ data.id }
                             value={ data.value }
@@ -191,6 +203,7 @@ class BBCGetStarted extends Component {
                 <li>
                     <label>
                         { data.label }
+                        <br />
                         <textarea
                             id={ data.id }
                             value={ data.value }
@@ -204,13 +217,18 @@ class BBCGetStarted extends Component {
 
 
         return (
-            <div>
+            <div
+                className="BBCGetStartedContainer"
+            >
                 <form
                     onSubmit={ evt => this.handleSubmit(evt) }
                 >
                     <ul>
                         <h3>General Information</h3>
-                        { GISimpleEntries }
+                        <div className="BBCShortEntryContainer">
+                            { GISimpleEntries }
+                        </div>
+                        <br />
                         { GILongEntries }
                         <h3>Areas Of Concern And Injury History</h3>
                         { areasOfConcernLongEntries }
