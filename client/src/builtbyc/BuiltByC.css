@@ -32,3 +32,59 @@
     height: 100px;
     margin-top: 10px;
 }
+
+.BBCtopNavBar {
+    background-color: white;
+    height: 50px;
+}
+
+.BBCtopNavBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.BBCtopNavBar li {
+    display: block;
+    text-decoration: none;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.BBCbarsDropdown {
+    float: right;
+    padding: 10px;
+    padding-left: 100px;
+}
+
+.BBCbarsDropdown {
+    float: right;
+}
+
+.BBCbarsDropdownContent {
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    left: 0px;
+    top: 50px;
+}
+
+.BBCbarsDropdownContent a {
+    float: none;
+    display: block;
+    color: black;
+}
+
+.BBCbarsDropdownContent:hover {
+    display: block
+}
+
+.BBCbarsDropdown:hover .BBCbarsDropdownContent {
+    display: block;
+}
+
+

@@ -4,6 +4,10 @@
     height: 50px;
 }
 
+.topNavBar a {
+    color: black;
+}
+
 .topNavBar ul {
     list-style-type: none;
     margin: 0; /* Set on ul so header is at top */
@@ -19,7 +23,6 @@
 
 .topNavBar .faBars {
     float: left;
-
 }
 
 .topNavBar .faUserCircle {

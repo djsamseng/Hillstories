@@ -27,8 +27,8 @@ class HomepageNavbar extends Component {
                 { logo }
                 <ul
                 >
-                    <li
-                        className="faUserCircle"
+                    <div
+                        className="BBCbarsDropdown"
                     >
                         <a>
                         <FontAwesomeIcon
@@ -36,7 +36,20 @@ class HomepageNavbar extends Component {
                             size="2x"
                         />
                         </a>
-                    </li>
+                        <div className="BBCbarsDropdownContent"
+                        >
+                            <li>
+                                <a href="/">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/getstarted">
+                                    Get Started
+                                </a>
+                            </li>
+                        </div>
+                    </div>
                 </ul>
             </nav>
         );
