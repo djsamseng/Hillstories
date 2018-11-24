@@ -53,6 +53,7 @@ class Homepage extends Component {
         storyId
     }) {
         console.log("GOT: " + storyId + "doing nothing for now");
+        this.props.history.push("/hillstories/stories?storyId=" + storyId);
     }
 
     __handleOpenProfile(args) {

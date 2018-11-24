@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import DataCache from "../serviceAccess/DataCache.js";
 import HomepageNavbar from "../homepage/HomepageNavbar.js";
 import ReadStoryText from "./ReadStoryText";
+import ReadStoryImage from "./ReadStoryImage";
 import ReadStoryQuestion from "./ReadStoryQuestion";
 import Constants from "../constants";
+import "./ReadStory.css";
 
 class ReadStory extends Component {
     constructor(props) {
@@ -36,28 +38,52 @@ class ReadStory extends Component {
                 const content = story.contents[i];
                 if (!content.ableToRead) {
                     contents.push((
-                        <ReadStoryText
-                            data={ content }
+                        <div
+                            className="RSSectionContainer"
                         >
-                        </ReadStoryText>
+                            <ReadStoryText
+                                data={ content }
+                            >
+                            </ReadStoryText>
+                        </div>
                     ));
                     break;
                 }
                 if (content.type === Constants.CONTENT_TYPES.TEXT) {
                     contents.push((
-                        <ReadStoryText
-                            data={ content }
+                        <div
+                            className="RSSectionContainer"
                         >
-                        </ReadStoryText>
+                            <ReadStoryText
+                                data={ content }
+                            >
+                            </ReadStoryText>
+                        </div>
+                    ));
+                }
+                else if (content.type === Constants.CONTENT_TYPES.IMAGE) {
+                    contents.push((
+                        <div
+                            className="RSSectionContainer"
+                        >
+                            <ReadStoryImage
+                                data={ content }
+                            >
+                            </ReadStoryImage>
+                        </div>
                     ));
                 }
                 else if (content.type === Constants.CONTENT_TYPES.QUESTION) {
                     contents.push((
-                        <ReadStoryQuestion
-                            data={ content }
-                            handleQuestionAnswer={ args => this.handleQuestionAnswer(args) }
+                        <div
+                            className="RSSectionContainer"
                         >
-                        </ReadStoryQuestion>
+                            <ReadStoryQuestion
+                                data={ content }
+                                handleQuestionAnswer={ args => this.handleQuestionAnswer(args) }
+                            >
+                            </ReadStoryQuestion>
+                        </div>
                     ));
                 }
             }

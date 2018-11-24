@@ -3,6 +3,7 @@
 const Constants = Object.freeze({
     CONTENT_TYPES: {
         QUESTION: "QUESTION",
+        IMAGE: "IMAGE",
         TEXT: "TEXT",
     },
     QUESTION_TYPES: {
