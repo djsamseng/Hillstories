@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import DataCache from "../serviceAccess/DataCache.js";
 import StorySnippetModal from "../stories/StorySnippetModal.js";
 import StoryTileList from "../tiles/StoryTileList.js";
-import HomepageNavbar from "./HomepageNavbar.js";
 import "./Homepage.css";
 
 
@@ -36,15 +35,11 @@ class Homepage extends Component {
         return (
             <div>
                 { modalHtml }
-                <HomepageNavbar
+                <StoryTileList
+                    storyTiles={ this.state.storyTiles }
+                    handleOpen={ args => { this.__handleOpen(args); } }
+                    handleOpenProfile={ args => { this.__handleOpenProfile(args); } }
                 />
-                <div className="container">
-                    <StoryTileList
-                        storyTiles={ this.state.storyTiles }
-                        handleOpen={ args => { this.__handleOpen(args); } }
-                        handleOpenProfile={ args => { this.__handleOpenProfile(args); } }
-                    />
-                </div>
             </div>
         );
     }

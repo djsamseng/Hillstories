@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import DataCache from "../serviceAccess/DataCache.js";
-import HomepageNavbar from "../homepage/HomepageNavbar.js";
 import ReadStoryText from "./ReadStoryText";
 import ReadStoryImage from "./ReadStoryImage";
 import ReadStoryQuestion from "./ReadStoryQuestion";
@@ -92,16 +91,13 @@ class ReadStory extends Component {
 
         return (
             <div>
-                <HomepageNavbar/>
-                <div className="container">
-                    <div className="storyTileListContainer">
-                        <div className="storyTileContainer">
-                            <h2>{ story ? story.title : ""}</h2>
-                            <img
-                                className="storyTileImage"
-                                src={ story ? story.imageUrl : "" }/>
-                            { contents }
-                        </div>
+                <div className="storyTileListContainer">
+                    <div className="storyTileContainer">
+                        <h2>{ story ? story.title : ""}</h2>
+                        <img
+                            className="storyTileImage"
+                            src={ story ? story.imageUrl : "" }/>
+                        { contents }
                     </div>
                 </div>
             </div>

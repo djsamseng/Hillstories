@@ -7,6 +7,7 @@ import Homepage from './homepage/Homepage';
 import ReadStory from "./stories/ReadStory";
 import * as serviceWorker from './serviceWorker';
 
+import Hillstories from "./Hillstories";
 import BuiltByC from "./builtbyc/BuiltByC";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -30,12 +31,12 @@ ReactDOM.render(
             </Route>
             <Route
                 exact path="/hillstories"
-                component={ Homepage }
+                component={ Hillstories }
             >
             </Route>
             <Route
                 path="/hillstories/stories"
-                component={ ReadStory }
+                component={ Hillstories }
             >
             </Route>
         </div>
