@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import DataCache from "../serviceAccess/DataCache.js";
 import HomepageNavbar from "../homepage/HomepageNavbar.js";
+import ReadStoryText from "./ReadStoryText";
+import ReadStoryQuestion from "./ReadStoryQuestion";
+import Constants from "../constants";
 
 class ReadStory extends Component {
     constructor(props) {
@@ -9,8 +12,12 @@ class ReadStory extends Component {
             story: null
         };
         this.d_dataCache = new DataCache();
+        this.refreshStory();
+    }
+
+    refreshStory() {
         this.d_dataCache.getStory({
-            storyId: "story1"
+            storyId: "story1", // TODO: Come from props
         })
         .then(story => {
             this.setState({
@@ -22,20 +29,40 @@ class ReadStory extends Component {
     render() {
         const renderData = {};
         const story = this.state.story;
-        let content = null;
+        let contents = null;
         if (story) {
-            const texts = story.contents.filter(content => {
-                return content.type === "TEXT";
-            })
-            .map(content => {
-                return content.text;
-            });
-            content = texts.map(text => {
-                return (
-                    <p>{ text }</p>
-                );
-            });
+            contents = [];
+            for (let i = 0; i < story.contents.length; i++) {
+                const content = story.contents[i];
+                if (!content.ableToRead) {
+                    contents.push((
+                        <ReadStoryText
+                            data={ content }
+                        >
+                        </ReadStoryText>
+                    ));
+                    break;
+                }
+                if (content.type === Constants.CONTENT_TYPES.TEXT) {
+                    contents.push((
+                        <ReadStoryText
+                            data={ content }
+                        >
+                        </ReadStoryText>
+                    ));
+                }
+                else if (content.type === Constants.CONTENT_TYPES.QUESTION) {
+                    contents.push((
+                        <ReadStoryQuestion
+                            data={ content }
+                            handleQuestionAnswer={ args => this.handleQuestionAnswer(args) }
+                        >
+                        </ReadStoryQuestion>
+                    ));
+                }
+            }
         }
+
 
         return (
             <div>
@@ -47,12 +74,25 @@ class ReadStory extends Component {
                             <img
                                 className="storyTileImage"
                                 src={ story ? story.imageUrl : "" }/>
-                            { content }
+                            { contents }
                         </div>
                     </div>
                 </div>
             </div>
         );
+    }
+
+    handleQuestionAnswer(args) {
+        if (this.state.story) {
+            this.d_dataCache.handleQuestionAnswer({
+                storyId: this.state.story._id,
+                questionId: args.questionId,
+                userAnswer: args.userAnswer
+            })
+            .then(() => {
+                return this.refreshStory();
+            });
+        }
     }
 }
 
