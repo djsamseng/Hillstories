@@ -12,6 +12,8 @@ class BBCHome extends Component {
     }
     render() {
         const links = [
+            "https://www.instagram.com/p/Bqp3XRrBiYq/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BqdOeo8hLCh/?utm_source=ig_web_copy_link",
             "https://www.instagram.com/p/BqSGYO0hePh/?utm_source=ig_web_copy_link",
             "https://www.instagram.com/p/BqKr3YehZg8/?utm_source=ig_web_copy_link",
             "https://www.instagram.com/p/BqDjggGhutT/?utm_source=ig_web_copy_link",

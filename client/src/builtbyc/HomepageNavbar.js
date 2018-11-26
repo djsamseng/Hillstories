@@ -8,6 +8,9 @@ import "./BuiltByC.css";
 class HomepageNavbar extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            showDropdown: false
+        };
     }
 
     render() {
@@ -29,6 +32,7 @@ class HomepageNavbar extends Component {
                 >
                     <div
                         className="BBCbarsDropdown"
+                        onClick={ () => this.onBarsDropdownClick() }
                     >
                         <a>
                         <FontAwesomeIcon
@@ -36,7 +40,9 @@ class HomepageNavbar extends Component {
                             size="2x"
                         />
                         </a>
-                        <div className="BBCbarsDropdownContent"
+                        <div
+                            className={ this.state.showDropdown ? "BBCbarsDropdownContentShow" : "BBCbarsDropdownContent" }
+
                         >
                             <li>
                                 <a href="/">
@@ -53,6 +59,12 @@ class HomepageNavbar extends Component {
                 </ul>
             </nav>
         );
+    }
+
+    onBarsDropdownClick() {
+        this.setState({
+            showDropdown: !this.state.showDropdown
+        });
     }
 }
 

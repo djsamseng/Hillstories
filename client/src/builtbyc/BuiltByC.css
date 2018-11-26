@@ -73,11 +73,30 @@
     top: 50px;
 }
 
+.BBCbarsDropdownContentShow {
+    display: block;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    left: 0px;
+    top: 50px;
+}
+
 .BBCbarsDropdownContent a {
     float: none;
     display: block;
     color: black;
 }
+
+.BBCbarsDropdownContentShow a {
+    float: none;
+    display: block;
+    color: black;
+}
+
 
 .BBCbarsDropdownContent:hover {
     display: block
