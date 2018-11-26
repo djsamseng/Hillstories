@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Route } from "react-router";
+import { fetch } from "whatwg-fetch";
 import HomepageNavbar from "./HomepageNavbar.js"
 import InstagramEmbed from "react-instagram-embed"
 import "./BuiltByC.css";
@@ -36,7 +37,9 @@ class BBCHome extends Component {
 class BBCGetStarted extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            submitted: false
+        };
     }
 
     render() {
@@ -109,6 +112,7 @@ class BBCGetStarted extends Component {
                             type={ data.type }
                             value={ data.value }
                             onChange={ evt => this.handleChange(evt) }
+                            required
                         >
                         </input>
                 </li>
@@ -121,9 +125,9 @@ class BBCGetStarted extends Component {
                 value: this.state.bestTimeWorkOut,
             },
             {
-                id: "BBCGSCurrNumWorkOut",
+                id: "BBCGScurrNumWorkOut",
                 label: "How many days a week are you currently working out?",
-                value: this.state.bestTimeWorkOut,
+                value: this.state.currNumWorkOut,
             },
             {
                 id: "BBCGSworkOutType",
@@ -143,6 +147,7 @@ class BBCGetStarted extends Component {
                             id={ data.id }
                             value={ data.value }
                             onChange={ evt => this.handleChange(evt) }
+                            required
                         >
                         </textarea>
                     </label>
@@ -215,32 +220,38 @@ class BBCGetStarted extends Component {
             );
         });
 
-
         return (
             <div
                 className="BBCGetStartedContainer"
             >
-                <form
-                    onSubmit={ evt => this.handleSubmit(evt) }
-                >
-                    <ul>
-                        <h3>General Information</h3>
-                        <div className="BBCShortEntryContainer">
-                            { GISimpleEntries }
-                        </div>
-                        <br />
-                        { GILongEntries }
-                        <h3>Areas Of Concern And Injury History</h3>
-                        { areasOfConcernLongEntries }
-                        <h3>Setting Your Health And Fitness Goals</h3>
-                        { settingGoalsLongEntries }
-                        <input
-                            type="submit"
-                            value="submit"
-                        >
-                        </input>
-                    </ul>
-                </form>
+                { !this.state.submitted ? (
+                    <form
+                        onSubmit={ evt => this.handleSubmit(evt) }
+                    >
+                        <ul>
+                            <h3>General Information</h3>
+                            <div className="BBCShortEntryContainer">
+                                { GISimpleEntries }
+                            </div>
+                            <br />
+                            { GILongEntries }
+                            <h3>Areas Of Concern And Injury History</h3>
+                            { areasOfConcernLongEntries }
+                            <h3>Setting Your Health And Fitness Goals</h3>
+                            { settingGoalsLongEntries }
+                            <input
+                                type="submit"
+                                value="submit"
+                            >
+                            </input>
+                        </ul>
+                    </form>
+                ) : (
+                    !this.state.didError ? (
+                        <h3>Submitted! We'll be in touch shortly</h3>
+                    ) : (
+                        <h3>Unexpected error. Please email thebuiltbyc@gmail.com</h3>)
+                ) }
             </div>
         );
     }
@@ -249,13 +260,34 @@ class BBCGetStarted extends Component {
         evt.preventDefault();
         const state = this.state;
         console.log(state);
+        fetch("/api/bbcgetstarted", {
+            method: "POST",
+            headers: {"Content-Type": "application/json" },
+            body: JSON.stringify({
+                state
+            }),
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            if (!res.success) {
+                console.error("Error submitting get started");
+                console.error(res.error.message || res.error);
+                this.setState({
+                    didError: true
+                });
+            }
+            console.log("Success submitting get started");
+            this.setState({
+                submitted: true
+            });
+        });
     }
 
     handleChange(evt) {
         const elemId = evt.target.id;
         const stateVarName = elemId.substr(5);
-        console.log(stateVarName);
-        console.log(evt.target.value);
         this.setState({
             [stateVarName]: evt.target.value
         });
