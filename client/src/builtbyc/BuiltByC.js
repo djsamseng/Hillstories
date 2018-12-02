@@ -108,6 +108,7 @@ class BBCGetStarted extends Component {
                         className="BBCShortEntryLabel">
                         { data.label }
                     </label>
+                    <span className="BBCShortEntryValueContainer">
                         <input
                             className="BBCShortEntryValue"
                             id={ data.id }
@@ -117,6 +118,7 @@ class BBCGetStarted extends Component {
                             required
                         >
                         </input>
+                    </span>
                 </li>
             );
         });

@@ -25,38 +25,32 @@ class HomepageNavbar extends Component {
 
         return (
             <nav
-                className="topNavBar"
+                className="BBCtopNavBarNav"
             >
-                { logo }
-                <ul
-                >
+                <a href="/">
                     <div
-                        className="BBCbarsDropdown"
-                        onClick={ () => this.onBarsDropdownClick() }
+                        className="BBCtopNavBar"
                     >
-                        <a>
-                        <FontAwesomeIcon
-                            icon={ faBars }
-                            size="2x"
-                        />
-                        </a>
-                        <div
-                            className={ this.state.showDropdown ? "BBCbarsDropdownContentShow" : "BBCbarsDropdownContent" }
-
-                        >
-                            <li>
-                                <a href="/">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/getstarted">
-                                    Get Started
-                                </a>
-                            </li>
-                        </div>
+                        { logo }
                     </div>
-                </ul>
+                </a>
+                <div
+                    className="BBCnavbarContentShow"
+                >
+                    <ul
+                    >
+                        <a href="/about">
+                            <li>
+                                About
+                            </li>
+                        </a>
+                        <a href="/getstarted">
+                            <li>
+                                Get Started
+                            </li>
+                        </a>
+                    </ul>
+                </div>
             </nav>
         );
     }
