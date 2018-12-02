@@ -333,7 +333,7 @@ class BBCAbout extends Component {
                     className="BBCaboutImageContainer"
                 >
                     <img
-                        className="BBCAboutImage"
+                        className="BBCaboutImage"
                         src={ imgObj }
                     >
                     </img>
