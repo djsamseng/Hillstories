@@ -5,6 +5,17 @@ import HomepageNavbar from "./HomepageNavbar.js"
 import InstagramEmbed from "react-instagram-embed"
 import "./BuiltByC.css";
 
+import FaithWithoutActivity from "./img/FaithWithoutActivity.png";
+import YouAreUnlimited from "./img/YouAreUnlimited.png";
+import IfItDoesntChallenge from "./img/IfItDoesntChallenge.png";
+import SuccessIsNeverOwned from "./img/SuccessIsNeverOwned.png";
+import LiftPeopleUp from "./img/LiftPeopleUp.png";
+import BeingTested from "./img/BeingTested.png";
+import SteadinessComesFrom from "./img/SteadinessComesFrom.jpg";
+import FastedCardio from "./img/FastedCardio.png";
+import AskingAboutDrinking from "./img/AskingAboutDrinking.png";
+import TodaysRefeed from "./img/TodaysRefeed.png";
+
 class BBCHome extends Component {
    constructor(props) {
         super(props);
@@ -298,6 +309,47 @@ class BBCGetStarted extends Component {
     }
 }
 
+class BBCAbout extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
+    render() {
+        const images = [
+            FaithWithoutActivity,
+            YouAreUnlimited,
+            IfItDoesntChallenge,
+            SuccessIsNeverOwned,
+            LiftPeopleUp,
+            BeingTested,
+            SteadinessComesFrom,
+            FastedCardio,
+            AskingAboutDrinking,
+            TodaysRefeed,
+        ].map(imgObj => {
+            return (
+                <div
+                    className="BBCaboutImageContainer"
+                >
+                    <img
+                        className="BBCAboutImage"
+                        src={ imgObj }
+                    >
+                    </img>
+                </div>
+            );
+        });
+        return (
+            <div
+                className="BBCaboutContainer"
+            >
+                { images }
+            </div>
+        );
+    }
+};
+
 class BuiltByC extends Component {
     constructor(props) {
         super(props);
@@ -318,6 +370,11 @@ class BuiltByC extends Component {
                     <Route
                         exact path="/getstarted"
                         component={ BBCGetStarted }
+                    >
+                    </Route>
+                    <Route
+                        exact path="/about"
+                        component={ BBCAbout }
                     >
                     </Route>
                 </div>

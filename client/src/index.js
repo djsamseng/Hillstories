@@ -30,6 +30,11 @@ ReactDOM.render(
             >
             </Route>
             <Route
+                path="/about"
+                component={ BuiltByC }
+            >
+            </Route>
+            <Route
                 exact path="/hillstories"
                 component={ Hillstories }
             >

@@ -15,7 +15,7 @@ class LogoAnimation extends Component {
             "Charm",
             "Competence",
             "Champions",
-            "Can-do",
+            "CanDo",
             "Cheer",
             "Credit",
             "Consistency",
