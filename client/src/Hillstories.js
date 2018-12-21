@@ -23,7 +23,7 @@ class Hillstories extends Component {
                     >
                     </Route>
                     <Route
-                        path="/hillstories/stories"
+                        exact path="/hillstories/stories"
                         component={ ReadStory }
                     >
                     </Route>

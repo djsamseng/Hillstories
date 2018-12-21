@@ -19,7 +19,33 @@ import TodaysRefeed from "./img/TodaysRefeed.png";
 class BBCHome extends Component {
    constructor(props) {
         super(props);
-        this.state = {};
+        this.onLoad = this.onLoad.bind(this);
+        this.loadInstagram = this.loadInstagram.bind(this);
+        this.state = {
+            instagramLoaded: false
+        };
+    }
+    componentWillMount() {
+        this.loadInstagram();
+    }
+    loadInstagram() {
+        if (!window.instgrm) {
+            const instgrmScript = document.createElement("script");
+            instgrmScript.defer = true;
+            instgrmScript.async = true;
+            instgrmScript.src = "https://platform.instagram.com/en_US/embeds.js";
+            instgrmScript.id = "react-instagram-embed-script";
+            instgrmScript.onload = this.onLoad;
+            const body: HTMLElement | null = document.body;
+            if (body) {
+                body.appendChild(instgrmScript);
+            }
+        }
+    }
+    onLoad() {
+        this.setState({
+            instagramLoaded: true
+        });
     }
     render() {
         const links = [
@@ -39,6 +65,12 @@ class BBCHome extends Component {
                     url={ link }
                 />
         ));
+        if (!this.state.instagramLoaded) {
+            return (
+                <div>
+                </div>
+            );
+        }
         return (
             <div>
                 { instagramPosts }

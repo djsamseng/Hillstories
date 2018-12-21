@@ -25,12 +25,12 @@ ReactDOM.render(
             >
             </Route>
             <Route
-                path="/getstarted"
+                exact path="/getstarted"
                 component={ BuiltByC }
             >
             </Route>
             <Route
-                path="/about"
+                exact path="/about"
                 component={ BuiltByC }
             >
             </Route>
@@ -40,7 +40,7 @@ ReactDOM.render(
             >
             </Route>
             <Route
-                path="/hillstories/stories"
+                exact path="/hillstories/stories"
                 component={ Hillstories }
             >
             </Route>
