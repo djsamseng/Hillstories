@@ -49,6 +49,22 @@ class BBCHome extends Component {
     }
     render() {
         const links = [
+            "https://www.instagram.com/p/BsQi4FLleWf/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BsNwD12lX-_/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BsLaHMEFYeo/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BsJYFdglSeO/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BsGAA96FF1c/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BsDatFVFlKk/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Br-UHRrl8NW/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Br7wyPsl3v6/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Br5LzqKlv9s/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Br0a4iPlQci/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bryb3IQFxSc/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BrxWtzDljZi/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Brve-x4lXDu/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BruwwJGFAJd/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Brtq2F_FzaA/?utm_source=ig_web_copy_link",
+        /*
             "https://www.instagram.com/p/Bqp3XRrBiYq/?utm_source=ig_web_copy_link",
             "https://www.instagram.com/p/BqdOeo8hLCh/?utm_source=ig_web_copy_link",
             "https://www.instagram.com/p/BqSGYO0hePh/?utm_source=ig_web_copy_link",
@@ -59,6 +75,7 @@ class BBCHome extends Component {
             "https://www.instagram.com/p/BpMycfpHCnk/?utm_source=ig_web_copy_link",
             "https://www.instagram.com/p/BntzkzFHBUF/?utm_source=ig_web_copy_link",
             "https://www.instagram.com/p/BPXzIPVB5vF/?utm_source=ig_web_copy_link",
+        */
         ];
         const instagramPosts = links.map(link => (
                 <InstagramEmbed
@@ -406,7 +423,7 @@ class BuiltByC extends Component {
                     </Route>
                     <Route
                         exact path="/about"
-                        component={ BBCAbout }
+                        component={ BBCHome }
                     >
                     </Route>
                 </div>
