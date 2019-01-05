@@ -14,12 +14,11 @@
 }
 
 .BBCShortEntryValue {
-    width: 100%;
+    width: 80%;
 }
 
 .BBCShortEntryValueContainer {
     display: block;
-    width: auto;
     overflow:hidden;
     padding-right: 10px;
     padding-left: 10px;
@@ -31,6 +30,7 @@
 
 .BBCGetStartedContainer form ul {
     list-style-type: none;
+    padding-inline-start: 0px;
 }
 
 .BBCGetStartedContainer form li {
@@ -39,7 +39,7 @@
 }
 
 .BBCGetStartedContainer form textarea {
-    width: 100%;
+    width: 80%;
     margin: 0;
     padding: 0;
     height: 100px;

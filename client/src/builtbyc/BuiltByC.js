@@ -211,7 +211,6 @@ class BBCGetStarted extends Component {
                             id={ data.id }
                             value={ data.value }
                             onChange={ evt => this.handleChange(evt) }
-                            required
                         >
                         </textarea>
                     </label>
