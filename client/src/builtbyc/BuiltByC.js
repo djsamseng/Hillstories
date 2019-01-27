@@ -3,6 +3,7 @@ import { Route } from "react-router";
 import { fetch } from "whatwg-fetch";
 import HomepageNavbar from "./HomepageNavbar.js"
 import InstagramEmbed from "react-instagram-embed"
+import instafeed from "react-instafeed"
 import "./BuiltByC.css";
 
 import FaithWithoutActivity from "./img/FaithWithoutActivity.png";
@@ -48,35 +49,38 @@ class BBCHome extends Component {
         });
     }
     render() {
+        const data = instafeed({
+            get: "user",
+            userId: 9004477801,
+            accessToken: "27156099.b85fcc9.2fa7b2af70bf460d987b13c1e9b7c517"
+        })
+        .then(resp => {
+            console.log("USER", resp);
+        });
+        return this.renderFromLinks();
+    }
+    renderFromProfile() {
+    }
+    renderFromLinks() {
         const links = [
-            "https://www.instagram.com/p/BsQi4FLleWf/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BsNwD12lX-_/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BsLaHMEFYeo/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BsJYFdglSeO/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BsGAA96FF1c/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BsDatFVFlKk/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Br-UHRrl8NW/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Br7wyPsl3v6/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Br5LzqKlv9s/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Br0a4iPlQci/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bryb3IQFxSc/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BrxWtzDljZi/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Brve-x4lXDu/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BruwwJGFAJd/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Brtq2F_FzaA/?utm_source=ig_web_copy_link",
-        /*
-            "https://www.instagram.com/p/Bqp3XRrBiYq/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BqdOeo8hLCh/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BqSGYO0hePh/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BqKr3YehZg8/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BqDjggGhutT/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bp-EuR8hVML/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BpxmmwxBU2h/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BpMycfpHCnk/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BntzkzFHBUF/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BPXzIPVB5vF/?utm_source=ig_web_copy_link",
-        */
+            "https://www.instagram.com/p/BtI8Ksel_8y/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BtGzDzzlJrZ/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BtGyjvOlzeR/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BtGb3gtlRGS/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs_xpA2lxnz/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs3hORkFIvg/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs3gJeolza8/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs3Ut8tl7lH/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs3BwJzFv8h/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs1lSZClhlt/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs1ksmPFQ22/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs1eRCvFapL/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs1dkwOlMA5/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs1c7lUFDYU/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/Bs1caHjlkSG/?utm_source=ig_web_copy_link",
+            "https://www.instagram.com/p/BsiS-eMl5Mz/?utm_source=ig_web_copy_link",
         ];
+        
         const instagramPosts = links.map(link => (
                 <InstagramEmbed
                     url={ link }
