@@ -3,7 +3,7 @@ import { Route } from "react-router";
 import { fetch } from "whatwg-fetch";
 import HomepageNavbar from "./HomepageNavbar.js"
 import InstagramEmbed from "react-instagram-embed"
-import instafeed from "react-instafeed"
+//import instafeed from "react-instafeed"
 import "./BuiltByC.css";
 
 import FaithWithoutActivity from "./img/FaithWithoutActivity.png";
@@ -49,14 +49,14 @@ class BBCHome extends Component {
         });
     }
     render() {
-        const data = instafeed({
+        /*const data = instafeed({
             get: "user",
             userId: 9004477801,
             accessToken: "27156099.b85fcc9.2fa7b2af70bf460d987b13c1e9b7c517"
         })
         .then(resp => {
             console.log("USER", resp);
-        });
+        });*/
         return this.renderFromLinks();
     }
     renderFromProfile() {
