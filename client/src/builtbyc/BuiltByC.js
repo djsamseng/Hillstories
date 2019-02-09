@@ -3,7 +3,6 @@ import { Route } from "react-router";
 import { fetch } from "whatwg-fetch";
 import HomepageNavbar from "./HomepageNavbar.js"
 import InstagramEmbed from "react-instagram-embed"
-//import instafeed from "react-instafeed"
 import "./BuiltByC.css";
 
 import FaithWithoutActivity from "./img/FaithWithoutActivity.png";
@@ -42,8 +41,27 @@ class BBCAbout extends Component {
         this.onLoad = this.onLoad.bind(this);
         this.loadInstagram = this.loadInstagram.bind(this);
         this.state = {
-            instagramLoaded: false
+            instagramLoaded: false,
+            links: []
         };
+        fetch("/api/bbcabout", {
+            method: "POST",
+            headers: {"Content-Type": "application/json" },
+            body: JSON.stringify({}),
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            console.log("RES:", res);
+            this.setState({
+                links: res.links
+            });
+        })
+        .catch(error => {
+            console.log("ERROR:", error);
+        });
+
     }
     componentWillMount() {
         this.loadInstagram();
@@ -68,38 +86,8 @@ class BBCAbout extends Component {
         });
     }
     render() {
-        /*const data = instafeed({
-            get: "user",
-            userId: 9004477801,
-            accessToken: "27156099.b85fcc9.2fa7b2af70bf460d987b13c1e9b7c517"
-        })
-        .then(resp => {
-            console.log("USER", resp);
-        });*/
-        return this.renderFromLinks();
-    }
-    renderFromProfile() {
-    }
-    renderFromLinks() {
-        const links = [
-            "https://www.instagram.com/p/BtI8Ksel_8y/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BtGzDzzlJrZ/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BtGyjvOlzeR/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BtGb3gtlRGS/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs_xpA2lxnz/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs3hORkFIvg/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs3gJeolza8/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs3Ut8tl7lH/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs3BwJzFv8h/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs1lSZClhlt/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs1ksmPFQ22/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs1eRCvFapL/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs1dkwOlMA5/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs1c7lUFDYU/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/Bs1caHjlkSG/?utm_source=ig_web_copy_link",
-            "https://www.instagram.com/p/BsiS-eMl5Mz/?utm_source=ig_web_copy_link",
-        ];
-        
+        const links = this.state.links;
+
         const instagramPosts = links.map(link => (
                 <InstagramEmbed
                     url={ link }

@@ -9,7 +9,6 @@
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-instafeed": "^1.0.0",
     "react-instagram-embed": "^1.4.1",
     "react-markdown": "^4.0.3",
     "react-router-dom": "^4.3.1",
