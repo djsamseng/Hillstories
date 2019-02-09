@@ -16,8 +16,27 @@ import SteadinessComesFrom from "./img/SteadinessComesFrom.jpg";
 import FastedCardio from "./img/FastedCardio.png";
 import AskingAboutDrinking from "./img/AskingAboutDrinking.png";
 import TodaysRefeed from "./img/TodaysRefeed.png";
+import HomepageBackground from "./img/HomepageBackground.JPG";
 
 class BBCHome extends Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <div className="BBChomepageContainer">
+                <img src={ HomepageBackground } width="100%"/>
+                <a href="/getstarted">
+                    <div className="BBChomepageGetStartedButton">
+                        <p>GET STARTED!</p>
+                    </div>
+                </a>
+            </div>
+        );
+    }
+};
+
+class BBCAbout extends Component {
    constructor(props) {
         super(props);
         this.onLoad = this.onLoad.bind(this);
@@ -93,7 +112,7 @@ class BBCHome extends Component {
             );
         }
         return (
-            <div>
+            <div className="BBCstoryTileListContainer">
                 { instagramPosts }
             </div>
         );
@@ -288,37 +307,39 @@ class BBCGetStarted extends Component {
         });
 
         return (
-            <div
-                className="BBCGetStartedContainer"
-            >
-                { !this.state.submitted ? (
-                    <form
-                        onSubmit={ evt => this.handleSubmit(evt) }
-                    >
-                        <ul>
-                            <h3>General Information</h3>
-                            <div className="BBCShortEntryContainer">
-                                { GISimpleEntries }
-                            </div>
-                            <br />
-                            { GILongEntries }
-                            <h3>Areas Of Concern And Injury History</h3>
-                            { areasOfConcernLongEntries }
-                            <h3>Setting Your Health And Fitness Goals</h3>
-                            { settingGoalsLongEntries }
-                            <input
-                                type="submit"
-                                value="submit"
-                            >
-                            </input>
-                        </ul>
-                    </form>
-                ) : (
-                    !this.state.didError ? (
-                        <h3>Submitted! We'll be in touch shortly</h3>
+            <div className="BBCstoryTileListContainer">
+                <div
+                    className="BBCGetStartedContainer"
+                >
+                    { !this.state.submitted ? (
+                        <form
+                            onSubmit={ evt => this.handleSubmit(evt) }
+                        >
+                            <ul>
+                                <h3>General Information</h3>
+                                <div className="BBCShortEntryContainer">
+                                    { GISimpleEntries }
+                                </div>
+                                <br />
+                                { GILongEntries }
+                                <h3>Areas Of Concern And Injury History</h3>
+                                { areasOfConcernLongEntries }
+                                <h3>Setting Your Health And Fitness Goals</h3>
+                                { settingGoalsLongEntries }
+                                <input
+                                    type="submit"
+                                    value="submit"
+                                >
+                                </input>
+                            </ul>
+                        </form>
                     ) : (
-                        <h3>Unexpected error. Please email thebuiltbyc@gmail.com</h3>)
-                ) }
+                        !this.state.didError ? (
+                            <h3>Submitted! We'll be in touch shortly</h3>
+                        ) : (
+                            <h3>Unexpected error. Please email thebuiltbyc@gmail.com</h3>)
+                    ) }
+                </div>
             </div>
         );
     }
@@ -361,7 +382,7 @@ class BBCGetStarted extends Component {
     }
 }
 
-class BBCAbout extends Component {
+class BBCAboutOld extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -413,7 +434,7 @@ class BuiltByC extends Component {
             <div
                 className="container">
                 <HomepageNavbar />
-                <div className="storyTileListContainer">
+                <div className="">
                     <Route
                         exact path="/"
                         component={ BBCHome }
@@ -426,7 +447,7 @@ class BuiltByC extends Component {
                     </Route>
                     <Route
                         exact path="/about"
-                        component={ BBCHome }
+                        component={ BBCAbout }
                     >
                     </Route>
                 </div>
