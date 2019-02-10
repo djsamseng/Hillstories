@@ -23,8 +23,9 @@ ig.use({
 });
 
 router.post("/bbcgetstarted", (req, res) => {
-    console.log("GOT BBCgetstarted");
     const { state } = req.body;
+    console.log("Sending email");
+    console.log(state);
     const {
         firstName,
         lastName,
@@ -52,8 +53,6 @@ router.post("/bbcgetstarted", (req, res) => {
             });
         }
         else {
-            console.info("Success sending email");
-            console.info(msg);
             return res.json({
                 success:true
             });
@@ -62,7 +61,6 @@ router.post("/bbcgetstarted", (req, res) => {
 });
 
 router.post("/bbcabout", (req, res) => {
-    console.log("GOT bbcabout");
     ig.use({
         access_token: passwords.instagram.access_token,
     });
@@ -79,7 +77,6 @@ router.post("/bbcabout", (req, res) => {
             }
             else {
                 const links = result.map(res => res.link);
-                console.log("LINKS:", links);
                 return res.json({
                     links
                 });

@@ -20,9 +20,12 @@
     "nodemon": "^1.18.6"
   },
   "scripts": {
+    "build": "babel server -d dist --presets es2015,stage-0",
     "test": "echo \"TODO\"",
     "start:server": "cd server && nodemon server.js --exec babel-node --presets es2015,stage-0",
+    "start:serverprod": "node dist/server.js > stdout.txt 2> stderr.txt &",
     "start:client": "cd client && yarn start",
-    "start:dev": "concurrently \"yarn start:server\" \"yarn start:client\""
+    "start:dev": "concurrently \"yarn start:server\" \"yarn start:client\"",
+    "start:prod": "concurrently \"yarn start:serverprod\" \"yarn start:client\""
   }
 }
