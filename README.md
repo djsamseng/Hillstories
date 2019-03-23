@@ -13,5 +13,7 @@ https://www.instagram.com/oauth/authorize/?client_id=[INSERT_HERE]&redirect_uri=
 - to update server
 ```
 ssh -i ../ec2_security_pair.pem ubuntu@public_dns
-cd /var/www/
+cd /var/www/Hillstories
+yarn build
+yarn start:prod &
 ```
