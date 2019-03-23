@@ -10,3 +10,8 @@ hillstories.com
 ```
 https://www.instagram.com/oauth/authorize/?client_id=[INSERT_HERE]&redirect_uri=http://localhost:3000&response_type=token&scope=public_content
 ```
+- to update server
+```
+ssh -i ../ec2_security_pair.pem ubuntu@public_dns
+cd /var/www/
+```
